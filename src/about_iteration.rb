@@ -8,16 +8,8 @@ class AboutIteration < Neo::Koan
   # convert to the right format in the koans. We will use "as_name"
   # whenever comparing to lists of methods.
 
-  in_ruby_version("1.8") do
-    def as_name(name)
-      name.to_s
-    end
-  end
-
-  in_ruby_version("1.9", "2") do
-    def as_name(name)
-      name.to_sym
-    end
+  def as_name(name)
+    before_ruby_version("1.9") ? name.to_s : name.to_sym
   end
 
   # Ok, now back to the Koans.
