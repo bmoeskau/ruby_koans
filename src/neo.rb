@@ -70,9 +70,7 @@ class Object
     end
   end
 
-  in_ruby_version("1.9", "2") do
-    public :method_missing
-  end
+  public :method_missing unless before_ruby_version("1.9")
 end
 
 class String
